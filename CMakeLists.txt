@@ -124,8 +124,6 @@ endif(APPLE)
 ########################################################################
 # Find gnuradio build dependencies
 ########################################################################
-find_package(CppUnit)
-find_package(Doxygen)
 find_package(Sodium)
 
 # Search for GNU Radio and its components and versions. Add any
@@ -135,18 +133,6 @@ find_package(Sodium)
 set(GR_REQUIRED_COMPONENTS RUNTIME)
 find_package(Gnuradio "3.8" REQUIRED)
 
-if(NOT CPPUNIT_FOUND)
-    message(FATAL_ERROR "CppUnit required to compile nacl")
-endif()
-
-########################################################################
-# Setup doxygen option
-########################################################################
-if(DOXYGEN_FOUND)
-    option(ENABLE_DOXYGEN "Build docs using Doxygen" ON)
-else(DOXYGEN_FOUND)
-    option(ENABLE_DOXYGEN "Build docs using Doxygen" OFF)
-endif(DOXYGEN_FOUND)
 
 ########################################################################
 # Create uninstall target
